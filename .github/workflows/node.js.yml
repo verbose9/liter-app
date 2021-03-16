@@ -25,15 +25,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build
-    - name: Deploying
+
+    - name: Warm up git 🔥
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git config pull.rebase false
         git pull --allow-unrelated-histories origin gh-pages
-        git checkout gh-pages
+    - run: npm ci
+    - run: npm run build
+    - name: Deploying
+      run: |
         git add dist/
+        git checkout gh-pages
         git commit -m 'Add pages'
         git push -u origin gh-pages
