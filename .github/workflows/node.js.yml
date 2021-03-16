@@ -36,7 +36,7 @@ jobs:
     - run: npm run build
     - name: Deploying
       run: |
-        git add dist/
         git checkout gh-pages
+        git add dist/
         git commit -m 'Add pages'
         git push -u origin gh-pages
