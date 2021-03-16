@@ -28,4 +28,11 @@ jobs:
     - run: npm ci
     - run: npm run build
     - name: Deploying
-      run: ls
+      run: |
+        git config user.name 'Electrolyte Orb'
+        git config user.email 'electrolyte.spdf@outlook.com'
+        git pull origin gh-pages
+        git checkout gh-pages
+        git add .
+        git commit -m 'Add pages'
+        git push -u origin gh-pages
