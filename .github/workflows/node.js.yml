@@ -29,8 +29,8 @@ jobs:
     - run: npm run build
     - name: Deploying
       run: |
-        git config user.name 'Electrolyte Orb'
-        git config user.email 'electrolyte.spdf@outlook.com'
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
         git config pull.rebase false
         git pull --allow-unrelated-histories origin gh-pages
         git checkout gh-pages
